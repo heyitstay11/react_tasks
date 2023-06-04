@@ -1,0 +1,33 @@
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  width: 420px;
+  max-width: 95vw;
+  padding: 0.5em;
+  font-size: 1.15rem;
+  padding-inline: 2.5rem;
+  box-shadow: 7px 9px 18px 0px rgba(0, 0, 0, 0.47);
+  border: none;
+  border-radius: 999px;
+}
+
+.searchbar {
+  position: relative;
+  padding-block: 2.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchbar .icon {
+  position: absolute;
+  z-index: 1;
+}
+
+.searchbar .search-icon {
+  left: 10px;
+}

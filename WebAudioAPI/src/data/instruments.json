@@ -1,0 +1,46 @@
+{
+  "instruments": [
+    {
+      "name": "Piano",
+      "description": "The piano is a keyboard instrument that produces sound when pressed on the keys. Most modern pianos have a row of 88 black and white keys: 52 white keys and 36 shorter black keys raised above the white keys",
+      "wiki": "https://en.wikipedia.org/wiki/Piano",
+      "thumbnail": "img/piano.jpg",
+      "file": "audio/piano.mp3"
+    },
+    {
+      "name": "Violin",
+      "description": "The violin, sometimes known as a fiddle, is a wooden chordophone (string instrument) in the violin family. Most violins have a hollow wooden body.",
+      "wiki": "https://en.wikipedia.org/wiki/Violin",
+      "thumbnail": "img/violin.jpg",
+      "file": "audio/violin.mp3"
+    },
+    {
+      "name": "Flute",
+      "description": "The flute is a member of a family of musical instruments in the woodwind group. Like all woodwinds, flutes are aerophones, producing sound with a vibrating column of air.",
+      "wiki": "https://en.wikipedia.org/wiki/Flute",
+      "thumbnail": "img/flute.jpg",
+      "file": "audio/flute.mp3"
+    },
+    {
+      "name": "Accordion",
+      "description": "Accordions are a family of box-shaped musical instruments of the bellows-driven free reed aerophone type",
+      "wiki": "https://en.wikipedia.org/wiki/Accordion",
+      "thumbnail": "img/accordion.jpg",
+      "file": "audio/accordion.mp3"
+    },
+    {
+      "name": "Drums",
+      "description": "The drum is a member of the percussion group of musical instruments. In the Hornbostel-Sachs classification system, it is a membranophone",
+      "wiki": "https://en.wikipedia.org/wiki/Drum",
+      "thumbnail": "img/drums.jpg",
+      "file": "audio/drums.mp3"
+    },
+    {
+      "name": "Harmonica",
+      "description": "The harmonica, also known as a French harp or mouth organ, is a free reed wind instrument used worldwide in many musical genres, notably in blues, American folk music, classical music, jazz, country, and rock",
+      "wiki": "https://en.wikipedia.org/wiki/Harmonica",
+      "thumbnail": "img/harmonica.jpg",
+      "file": "audio/harmonica.mp3"
+    }
+  ]
+}
