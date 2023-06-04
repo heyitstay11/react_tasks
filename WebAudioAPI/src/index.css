@@ -24,6 +24,7 @@
 }
 
 .container {
+  position: relative;
   max-width: 1000px;
   margin-inline: auto;
   padding: 1em;
@@ -98,4 +99,19 @@
 .stop-btn:hover {
   background: #fff;
   color: #d90429;
+}
+
+.canvas {
+  position: fixed;
+  height: 100px;
+  width: 700px;
+  max-width: 90vw;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.canvas.active {
+  background-color: rgb(24, 24, 24);
 }

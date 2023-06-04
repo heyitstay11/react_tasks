@@ -9,6 +9,15 @@ function App() {
    * @type {React.MutableRefObject<AudioBufferSourceNode>}
    */
   const sourceNode = useRef(null);
+  /**
+   * @type {React.MutableRefObject<AnalyserNode>}
+   */
+  const analyser = useRef(null);
+  /**
+   * @type {React.MutableRefObject<HTMLCanvasElement>}
+   */
+  const canvasRef = useRef(null);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,9 +42,43 @@ function App() {
       );
       sourceNode.current = audioContext.current.createBufferSource();
       sourceNode.current.buffer = audioBuffer;
-      sourceNode.current.connect(audioContext.current.destination);
+      analyser.current = audioContext.current.createAnalyser();
+      sourceNode.current.connect(analyser.current);
+      analyser.current.connect(audioContext.current.destination);
       sourceNode.current.start(0);
+
+      // visulization
+      analyser.current.fftSize = 128;
+      const bufferLength = analyser.current.frequencyBinCount;
+      const dataArray = new Uint8Array(bufferLength);
+      const barWidth = canvasRef.current.width / bufferLength;
+      let x = 0;
+
+      const animate = () => {
+        x = 0;
+        const canvasContext = canvasRef.current.getContext("2d");
+        canvasContext.clearRect(
+          0,
+          0,
+          canvasRef.current.width,
+          canvasRef.current.height
+        );
+        analyser.current.getByteFrequencyData(dataArray);
+        for (let i = 0; i < bufferLength; i++) {
+          canvasContext.fillStyle = "green";
+          const barHeight = dataArray[i];
+          canvasContext.fillRect(
+            x,
+            canvasRef.current.height - barHeight,
+            barWidth,
+            barHeight
+          );
+          x += barWidth;
+        }
+        requestAnimationFrame(animate);
+      };
       setIsPlaying(true);
+      animate();
     } catch (error) {
       console.log(error);
     } finally {
@@ -47,7 +90,6 @@ function App() {
     <>
       <h1 className="title">Musical Instruments</h1>
       <div className="container">
-        {isLoading && <Loader />}
         {isPlaying && (
           <div className="btn-container">
             <button onClick={handleStop} className="stop-btn">
@@ -55,6 +97,13 @@ function App() {
             </button>
           </div>
         )}
+        {isLoading && <Loader />}
+        <canvas
+          width={800}
+          height={300}
+          className={`canvas ${isPlaying ? "active" : "not-active"}`}
+          ref={canvasRef}
+        ></canvas>
 
         <main className="grid">
           {instruments.map((instrument, index) => {
